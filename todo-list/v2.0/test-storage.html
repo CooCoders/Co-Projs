@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage</title>
+</head>
+
+<body>
+  <p id="msg"></p>
+  <button id="btn" onclick="add()">click</button>
+  <script>
+    if (localStorage.clickcount) {
+      document.getElementById('msg').innerHTML = localStorage.clickcount + '次'
+    }
+    function add() {
+      // 在 localstorage 中保存 clickcount
+      // 首次保存时置为 1 之后每次点击加1
+      if (localStorage.clickcount) {
+        localStorage.clickcount = Number(localStorage.clickcount) + 1
+      } else {
+        localStorage.clickcount = 1
+      }
+      document.getElementById('msg').innerHTML = localStorage.clickcount + '次'
+    }
+  </script>
+</body>
+
+</html>
