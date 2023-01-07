@@ -33,3 +33,21 @@ const text = [
   },
 ]
 
+const quiz = document.querySelector('#quiz')
+const question = document.querySelector('#question')
+const a_text = document.querySelector('#a_text')
+const b_text = document.querySelector('#b_text')
+const c_text = document.querySelector('#c_text')
+const d_text = document.querySelector('#d_text')
+
+let curIndex = 0
+loadData()
+
+
+function loadData() {
+  question.innerText = text[curIndex].question
+  a_text.innerText = text[curIndex].a
+  b_text.innerText = text[curIndex].b
+  c_text.innerText = text[curIndex].c
+  d_text.innerText = text[curIndex].d
+}
