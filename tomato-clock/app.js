@@ -12,8 +12,8 @@ btnEnd.addEventListener('click', () => {
 
 
 function setTime() {
-  let cou = iptTime.value
-  show.innerText = `Clock: ${cou}`
+  let cou = iptTime.value * 60
+  show.innerText = `距离结束还有: ${cou} 秒`
 
   if (cou > 0) {
     btnStart.disabled = true
@@ -24,7 +24,8 @@ function setTime() {
         myapi.handleSend('end')
         clearInterval(timer)
       }
-      show.innerText = `Clock: ${cou}`
+      show.innerText = `距离结束还有: ${cou} 秒`
     }, 1000);
   }
+  show.innerText = "😊"
 }
