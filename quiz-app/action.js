@@ -33,14 +33,18 @@ const text = [
   },
 ]
 
+const container = document.querySelector('#quiz')
 const quiz = document.querySelector('#quiz')
 const question = document.querySelector('#question')
+const answers = document.querySelectorAll('.answer')
 const a_text = document.querySelector('#a_text')
 const b_text = document.querySelector('#b_text')
 const c_text = document.querySelector('#c_text')
 const d_text = document.querySelector('#d_text')
+const subBtn = document.querySelector('#submit')
 
 let curIndex = 0
+let score = 0
 loadData()
 
 
@@ -51,3 +55,44 @@ function loadData() {
   c_text.innerText = text[curIndex].c
   d_text.innerText = text[curIndex].d
 }
+
+function delAnswers() {
+  answers.forEach((item) => {
+    item.checked = false
+  })
+}
+
+function getSelected() {
+  let result
+  /*
+    注意 forEach 方法会循环所有的 item（即使已经触发结束条件）
+    并且 foEach 方法内部无法 return 因此要通过外部变量保存的方式返回
+  */
+  answers.forEach((item) => {
+    if (item.checked) {
+      result = item
+    }
+  })
+  return result
+}
+
+subBtn.addEventListener('click', () => {
+  const selectItem = getSelected()
+  if (selectItem) {
+    if (selectItem.id == text[curIndex].correct) {
+      score++
+    }
+    curIndex++
+    if (curIndex < text.length) {
+      delAnswers()
+      loadData()
+    } else {
+      container.innerHTML = `
+      <h2>Your Score: ${score}</h2>
+      <button onclick='location.reload()' id="submit">Reload</button>
+      `
+    }
+  } else {
+    alert('choose one')
+  }
+})
