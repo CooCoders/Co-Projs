@@ -8,49 +8,19 @@
   <meta http-equiy="Content-Security-Policy"
     content="default-src 'self'; img-src 'self' data:;script-src 'self'; style-src 'self' 'unsafe-inline'">
   <title>tomato-clock</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <h4 id="show">Clock: </h4>
+  <p id="show">Clock: </p>
   <form action="#">
-    <input type="text" id="iptTime">
+    <input type="text" id="iptTime" placeholder="输入时间(分钟)">
     <br>
-    <input id="btnStart" value="Start" type="submit"></input>
-    <button id="btnEnd">End</button>
+    <input id="btnStart" value="Start" type="submit" class="btn"></input>
+    <button id="btnEnd" class="btn">End</button>
   </form>
 
-  <script>
-    const btnStart = document.querySelector('#btnStart')
-    const btnEnd = document.querySelector('#btnEnd')
-    const iptTime = document.querySelector('#iptTime')
-    const show = document.querySelector('#show')
-    let timer
-    btnStart.addEventListener('click', setTime)
-
-    btnEnd.addEventListener('click', () => {
-      clearInterval(timer)
-      btnStart.disabled = false
-    })
-
-    function setTime() {
-      let cou = iptTime.value
-      show.innerText = `Clock: ${cou}`
-
-      if (cou > 0) {
-        btnStart.disabled = true
-        timer = setInterval(() => {
-          cou--
-          console.log(cou)
-          if (cou < 0) {
-            btnStart.disabled = false
-            clearInterval(timer)
-          }
-          show.innerText = `Clock: ${cou}`
-        }, 1000);
-      }
-    }
-
-  </script>
+  <script src="./app.js"></script>
 </body>
 
 </html>

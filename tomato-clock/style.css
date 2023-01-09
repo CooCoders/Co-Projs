@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#show {
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  color: #444;
+}
+
+form {
+  height: 50%;
+  padding: 2px;
+  text-align: center;
+}
+
+#iptTime {
+  display: block;
+  height: 50%;
+  width: 90%;
+  padding: 3px;
+  border: none;
+  outline: none;
+  color: #444;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#iptTime::placeholder {
+  color: #838080;
+}
+
+#iptTime:focus {
+  outline: rgb(179, 131, 226);
+}
+
+.btn {
+  display: inline-block;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: #b5b5b5;
+  height: 20%;
+  width: 30%;
+}
