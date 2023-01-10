@@ -4,11 +4,12 @@ const main = document.querySelector('.main')
 const form = document.querySelector('#form')
 const search = document.querySelector('#iptSearch')
 
-// 获取用户信息
+/*
+  异步函数 调用 github 的接口取得用户信息
+*/
 async function getUser(username) {
   try {
     const { data } = await axios(APIURL + username)
-    console.log(data)
     createUserCard(data)
     getRepos(username)
   } catch (err) {
@@ -18,11 +19,13 @@ async function getUser(username) {
   }
 }
 
-// 获取用户仓库
+/*
+  异步函数 调用接口 获取所有的仓库
+*/
 async function getRepos(username) {
   try {
     const { data } = await axios(APIURL + username + '/repos?sort=created')
-    console.log(data)
+    addUserCard(data)
   } catch (err) {
     createErrorCard("Can't get the repos with this username")
   }
@@ -43,12 +46,25 @@ function createUserCard(user) {
         <ul>
           <li>${user.followers} <strong>followers</strong></li>
           <li>${user.following} <strong>followings</strong></li>
-          <li>${user.public_repos} <strong>Repos</strong></li>
+          <li>${user.public_repos} <strong>Repos</strong></li>       
         </ul>
-      </div>
+        <div id='repos'></div>
+      </div> 
     </div>
   `
   main.innerHTML = cardHTML
+}
+
+// 向 card 追加 repo 信息
+function addUserCard(repos) {
+  const reposEl = document.getElementById('repos')
+  repos.forEach((item) => {
+    const repoEl = document.createElement('a')
+    repoEl.classList.add('repo')
+    repoEl.href = item.html_url
+    repoEl.innerText = item.name
+    reposEl.appendChild(repoEl)
+  })
 }
 
 
@@ -68,9 +84,7 @@ form.addEventListener('submit', (e) => {
   const username = search.value
   if (username) {
     getUser(username)
-    /*
-      查询用户逻辑
-    */
-    // alert(username)
+  } else {
+    createErrorCard("Can't get information with this username")
   }
 })
