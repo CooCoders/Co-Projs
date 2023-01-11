@@ -2,6 +2,7 @@
   <div class="home">
     <AppBarVue title="TODO"></AppBarVue>
     <AvatarVue></AvatarVue>
+    <GradientVue></GradientVue>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import { ref, reactive } from 'vue'
 import AppBarVue from '../components/AppBar.vue'
 import AvatarVue from '../components/Avatar.vue'
+import GradientVue from '../components/Gradient.vue'
 </script>
 <style scoped>
 .home {
