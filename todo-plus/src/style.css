@@ -89,9 +89,9 @@ button:focus-visible {
   }
 } */
 @import url('https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: bisque;
 }

@@ -1,9 +1,10 @@
 <template>
   <div class="app-bar">
     <span>
+      <!-- 这里直接使用 awesome 矢量字体图标 在 style.css 文件中引入 -->
       <i class="fa fa-chevron-left"></i>
     </span>
-    <h1>{{ receives.barTitle }}1</h1>
+    <h1>{{ title }}</h1>
     <span>
       <i class="fa fa-bars"></i>
     </span>
@@ -12,9 +13,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-const receives = defineProps(['barTitle'])
-const title = receives.barTitle
-console.log(title)
+
+const receives = defineProps(['title'])
 </script>
 <style scoped>
 .app-bar {
@@ -26,9 +26,11 @@ console.log(title)
   z-index: 1;
 }
 
-h1 {
+.app-bar h1 {
   display: flex;
   justify-content: center;
+  font-family: Poppins, sans-serif;
+  font-weight: bolder;
 }
 
 span {
