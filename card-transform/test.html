@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 300px;
+      width: 100vh;
+      border: 1px solid black;
+    }
+
+    .inside {
+      display: inline-flex;
+      justify-content: space-around;
+      height: 250px;
+      width: 340vh;
+      border: 1px solid black;
+    }
+
+    .card {
+      display: inline-block;
+      width: 60vh;
+      height: 100%;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="inside">
+      <div class="card">1</div>
+      <div class="card">2</div>
+      <div class="card">3</div>
+      <div class="card">4</div>
+    </div>
+  </div>
+  <script>
+    const box = document.querySelector('.test')
+    box.addEventListener('touchend', () => {
+      alert('move')
+    })
+  </script>
+</body>
+
+</html>
