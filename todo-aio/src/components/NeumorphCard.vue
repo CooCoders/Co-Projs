@@ -24,18 +24,22 @@ const rec = defineProps(['btn', 'title'])
 .neumorph > .title {
   display: inline-block;
   padding: 0 0.5rem;
-  /* background: var(--va-text-dark-color); */
+  background: var(--va-text-dark-color);
+  color: var(--va-bg-light-color);
   font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 5px;
 }
 
 .add-btn {
+  /* 使用绝对定位设置右上角的按钮 */
   position: absolute;
   right: 0;
   margin-top: -1.5rem;
   width: 1.5rem;
   height: 1.5rem;
   text-align: center;
-  border-radius: 999px;
+  border-radius: 50%;
   font-weight: 700;
   color: var(--va-text-dark-color);
   background-color: linear-gradient(145deg, #f0f0f0, #cacaca);

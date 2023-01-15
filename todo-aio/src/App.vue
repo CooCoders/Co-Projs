@@ -12,6 +12,7 @@ const btnStatus = true
   </header>
   <div class="container">
     <NeumorphCard title="To be done" :btn="btnStatus"></NeumorphCard>
+    <NeumorphCard title="Another item" btn="false"></NeumorphCard>
   </div>
 </template>
 
