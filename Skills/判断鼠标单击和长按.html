@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.js"></script>
+  <style>
+    .test1 {
+      height: 200px;
+      width: 200px;
+      background-color: bisque;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test1"></div>
+  <script>
+    /*
+      判断点击事件还是长按事件
+      使用 mousedown 和 mouseup 
+      在 mousedown 事件中记录开始的时间戳
+      在 mouseup 事件中记录结束时间戳
+      设定间隔时间 并执行相应的操作
+    */
+    let timeStampStart = 0
+    $('.test1').on({
+      mousedown: function (e) {
+        timeStampStart = Date.parse(new Date())
+      },
+      mouseup: function (e) {
+        const tmpStamp = Date.parse(new Date())
+        if (tmpStamp - timeStampStart >= 2) {
+          alert('click ~~~~')
+        } else {
+          Click(e)
+        }
+      }
+    })
+
+    function Click(e) {
+      alert('click.')
+    }
+  </script>
+</body>
+
+</html>
